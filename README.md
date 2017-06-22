@@ -1,4 +1,4 @@
-# FaceRockr Coding Challenge
+# Student Events
 
 App running on [heroku](https://guarded-depths-50089.herokuapp.com/#/)
 
@@ -6,13 +6,13 @@ App running on [heroku](https://guarded-depths-50089.herokuapp.com/#/)
 
 Clone this project by terminal:
 ```bash
-$ git@github.com:marlon407/FaceRockr.git
+$ git@github.com:marlon407/front-students-events.git
 ```
 
 Go to project's folder:
 
 ```bash
-$ cd FaceRockr
+$ cd front-students-events
 ```
 
 Installing dependencies
@@ -50,5 +50,7 @@ $ ./build_fronend.sh
 ###How to use
 
 There are two main routes:
- - /feed - A news feed that shows you what your friends have been doing recently. Here also you can update your status
- - /friends - A friend list
+- / - Login page
+ - /user - See all professors * Can create new if admin
+ - /students - See all students * Can create new if admin
+ - /events - See all events * Can create new
