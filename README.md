@@ -1,6 +1,6 @@
 # Student Events
 
-App running on [heroku](https://guarded-depths-50089.herokuapp.com/#/)
+App running on [heroku](https://front-student-events.herokuapp.com)
 
 ###Installation
 
