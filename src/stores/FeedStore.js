@@ -7,7 +7,9 @@ class FeedStore extends BaseStore{
       super();
       this.subscribe(() => this._registerToActions.bind(this));
       this.students = null;
+      this.student = null;
       this.professors = null;
+      this.user = null;
       this.events = null;
       this.event = null;
       this.message = null;
@@ -17,11 +19,17 @@ class FeedStore extends BaseStore{
     setStudents(students){ this.students = students; }
     getStudents(){ return this.students; }
 
+    setStudent(student){ this.student = student; }
+    getStudent(){ return this.student; }
+
     setEvents(data) { this.events = data }
     getEvents() { return this.events }
 
     setEvent(data) { this.event = data }
     getEvent() { return this.event }
+
+    setUser(data) { this.user = data }
+    getUser() { return this.user }
 
     setProfessors(data) { this.professors = data }
     getProfessors() { return this.professors }
@@ -39,6 +47,10 @@ class FeedStore extends BaseStore{
           this.setStudents(action.data);
           this.emitChange();
           break;
+        case ActionTypes.GET_STUDENT:
+          this.setStudent(action.data);
+          this.emitChange();
+          break;
         case ActionTypes.GET_PROFESSORS:
           this.setProfessors(action.data);
           this.emitChange();
@@ -47,12 +59,12 @@ class FeedStore extends BaseStore{
           this.setEvents(action.data);
           this.emitChange();
           break;
-        case ActionTypes.SAVE_STUDENT:
+        case ActionTypes.SAVE_USER:
           this.setSaved();
           this.emitChange();
           break;
-        case ActionTypes.SAVE_USER:
-          this.setSaved();
+        case ActionTypes.GET_USER:
+          this.setUser(action.data);
           this.emitChange();
           break;
         case ActionTypes.SAVE_EVENT:

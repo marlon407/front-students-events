@@ -2,6 +2,7 @@ import React from 'react';
 import { List, ListItem } from 'material-ui/List';
 import Avatar from 'material-ui/Avatar';
 import FontIcon from 'material-ui/FontIcon';
+import { hashHistory } from "react-router";
 
 import EmptyListItem from '../EmptyListItem';
 import FeedUtuils from '../../utils/FeedUtuils';
@@ -30,6 +31,7 @@ export default class FeedItems extends React.Component {
       const items = students.map((item) => {
           return (
             <ListItem key={item._id}
+              onClick={()=>{hashHistory.push(`/students/${item._id}`);}}
               nestedListStyle={{wordWrap: 'breakWord'}}
               leftAvatar={<Avatar src={''} />}
               primaryText={item.name || "No message"}

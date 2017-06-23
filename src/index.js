@@ -13,9 +13,11 @@ import Login from './components/Login'
 
 import Students from './components/student/Students';
 import CreateStudent from './components/student/CreateStudent';
+import ShowStudent from './components/student/ShowStudent';
 
 import Users from './components/user/Users'
 import CreateUser from './components/user/CreateUser'
+import ShowUser from './components/user/ShowUser'
 
 import Events from './components/event/Events';
 import EventCreate from './components/event/CreateEvent';
@@ -40,9 +42,11 @@ render((
           <IndexRoute component={Login}/>
           <Route path="/students" component={Students} onEnter={authTransition}/>
           <Route path="/students/new" component={CreateStudent} onEnter={authTransition}/>
+          <Route path="/students/:id" component={ShowStudent} onEnter={authTransition}/>
           
           <Route path="/users" component={Users} onEnter={authTransition}/>
           <Route path="/users/new" component={CreateUser} onEnter={authTransition}/>
+          <Route path="/users/:id" component={ShowUser} onEnter={authTransition}/>
 
           <Route path="/events" component={Events} onEnter={authTransition}/>
           <Route path="/events/new" component={EventCreate} onEnter={authTransition}/>
