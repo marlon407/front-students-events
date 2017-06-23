@@ -99,7 +99,7 @@ export default class CreateUser extends React.Component {
 
       return (
         <div className="feed">
-            <Subheader style={{fontSize: 24, marginTop: 15}}> Nova professor </Subheader>
+            <Subheader style={{fontSize: 24, marginTop: 15}}> Novo professor </Subheader>
             <Divider />
           <Paper style={style} zDepth={2} >
             
@@ -143,7 +143,7 @@ export default class CreateUser extends React.Component {
           </Paper>
 
           <Dialog
-                title="Parabens"
+                title="Parabéns"
                 actions={actions}
                 modal={false}
                 open={this.state.open}

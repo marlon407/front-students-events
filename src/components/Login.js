@@ -62,7 +62,11 @@ export default class Feed extends React.Component {
         * @param data
     */
     handlePageClick = () => {
-        MainActions.login(this.state.username, this.state.password);
+        if(this.state.username == "" || this.state.password == ""){
+            MainActions.sendMessage("Preencha todos os campos!");
+        }else{
+            MainActions.login(this.state.username, this.state.password);
+        }
     }
 
     /**

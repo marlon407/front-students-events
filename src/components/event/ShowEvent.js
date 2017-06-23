@@ -16,17 +16,10 @@ import FeedActions from '../../actions/FeedActions';
 
 const style = {
   margin: 20,
+  padding: 10
 };
 
-const textStyle = {
-  padding: "10px"
-};
-
-const labelStyle = {
-  padding: "10px"
-};
-
-export default class CreateEvent extends React.Component {
+export default class ShowEvent extends React.Component {
   /**
   * React.Component constructor.
   */
@@ -114,7 +107,7 @@ export default class CreateEvent extends React.Component {
         const students =  this.state.students || [];
         const studentItems = students.map((item, index) => {
             return(
-                <MenuItem value={item.name} primaryText={item.name} />
+                <MenuItem key={index} value={item.name} primaryText={item.name} />
             )
         });
         return(
@@ -122,7 +115,7 @@ export default class CreateEvent extends React.Component {
                 floatingLabelText="Selecione um aluno"
                 value={this.state.event.student}
                 disabled
-                style={{width: '100%', padding: 10}}
+                style={{width: '100%'}}
                 onChange={(this.handleStudentChange)}
                 >
                 {studentItems}
@@ -134,7 +127,7 @@ export default class CreateEvent extends React.Component {
         const professors =  this.state.professors || [];
         const studentItems = professors.map((item, index) => {
             return(
-                <MenuItem value={item.name} primaryText={item.name} />
+                <MenuItem key={index} value={item.name} primaryText={item.name} />
             )
         });
         return(
@@ -142,7 +135,7 @@ export default class CreateEvent extends React.Component {
                 floatingLabelText="Selecione um professor"
                 value={this.state.event.professor}
                 disabled
-                style={{width: '100%', padding: 10}}
+                style={{width: '100%'}}
                 onChange={(this.handleProfessorChange)}
                 >
                 {studentItems}
@@ -178,7 +171,6 @@ export default class CreateEvent extends React.Component {
 
             <TextField
                 style={{width: '100%'}}
-                floatingLabelStyle={textStyle}
                 floatingLabelText="Disciplina"
                 name="subject"
                 disabled
@@ -188,7 +180,6 @@ export default class CreateEvent extends React.Component {
 
             <TextField
                 style={{width: '100%'}}
-                floatingLabelStyle={textStyle}
                 floatingLabelText="Descrição da ocorrência"
                 name="description"
                 multiLine={true}
@@ -200,8 +191,6 @@ export default class CreateEvent extends React.Component {
 
             <TextField
                 style={{width: '100%'}}
-                textareaStyle={textStyle}
-                floatingLabelStyle={textStyle}
                 floatingLabelText="Turma"
                 name="class"
                 disabled
@@ -211,8 +200,6 @@ export default class CreateEvent extends React.Component {
 
             <TextField
                 style={{width: '100%'}}
-                textareaStyle={textStyle}
-                floatingLabelStyle={textStyle}
                 floatingLabelText="Matricula"
                 name="registrationId"
                 disabled

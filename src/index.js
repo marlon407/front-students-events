@@ -6,6 +6,8 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
+import MainStore from './stores/MainStore';
+
 import App from './App.js';
 import Login from './components/Login'
 
@@ -23,20 +25,28 @@ import './index.css'
 
 injectTapEventPlugin();
 
+const authTransition = function authTransition(nextState, replace, callback) {
+  const isLoogedIn = MainStore.isLoogedIn()
+  if (!isLoogedIn) {
+    replace({ nextPathname: nextState.location.pathname }, '/login', nextState.location.query)
+  }
+  callback()
+}
+
 render((
   <MuiThemeProvider muiTheme={getMuiTheme()}>
     <Router history={hashHistory}>
       <Route path="/" component={App}>
           <IndexRoute component={Login}/>
-          <Route path="/students" component={Students}/>
-          <Route path="/students/new" component={CreateStudent}/>
+          <Route path="/students" component={Students} onEnter={authTransition}/>
+          <Route path="/students/new" component={CreateStudent} onEnter={authTransition}/>
           
-          <Route path="/users" component={Users}/>
-          <Route path="/users/new" component={CreateUser}/>
+          <Route path="/users" component={Users} onEnter={authTransition}/>
+          <Route path="/users/new" component={CreateUser} onEnter={authTransition}/>
 
-          <Route path="/events" component={Events}/>
-          <Route path="/events/new" component={EventCreate}/>
-          <Route path="/events/:id" component={ShowEvent}/>
+          <Route path="/events" component={Events} onEnter={authTransition}/>
+          <Route path="/events/new" component={EventCreate} onEnter={authTransition}/>
+          <Route path="/events/:id" component={ShowEvent} onEnter={authTransition}/>
       </Route>
     </Router>
   </MuiThemeProvider>

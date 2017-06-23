@@ -36,7 +36,10 @@ class MainStore extends BaseStore{
       return message; 
     }
 
-    isLoogedIn() { return this.loggedIn; }
+    isLoogedIn() { 
+      const token = localStorage.getItem('token')
+      return token ? true: false;
+    }
 
     _registerToActions(action) {
         switch (action.type) {

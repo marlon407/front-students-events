@@ -151,7 +151,7 @@ export default class CreateStudent extends React.Component {
           </Paper>
 
           <Dialog
-                title="Parabens"
+                title="Parabéns"
                 actions={actions}
                 modal={false}
                 open={this.state.open}

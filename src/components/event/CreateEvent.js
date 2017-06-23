@@ -100,7 +100,7 @@ export default class CreateEvent extends React.Component {
         const students =  this.state.students || [];
         const studentItems = students.map((item, index) => {
             return(
-                <MenuItem value={item.name} primaryText={item.name} />
+                <MenuItem key={index} value={item.name} primaryText={item.name} />
             )
         });
         return(
@@ -201,12 +201,12 @@ export default class CreateEvent extends React.Component {
           </Paper>
 
           <Dialog
-                title="Parabens"
+                title="Parabéns"
                 actions={actions}
                 modal={false}
                 open={this.state.open}
                 onRequestClose={this.handleClose}>
-                Aluno criado com sucesso!
+                Evento criado com sucesso!
             </Dialog>
         </div>
       )
