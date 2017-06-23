@@ -24,7 +24,7 @@ export default class App extends React.Component {
       const message = MainStore.getMessage();
       console.log("message", message);
       if (message){
-        this.setState({message: message, open: true});
+        this.setState({message, open: true});
       }else{
         this.setState({open: false});
       }

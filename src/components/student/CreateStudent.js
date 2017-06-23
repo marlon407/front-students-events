@@ -53,6 +53,14 @@ export default class CreateStudent extends React.Component {
         }
     }
 
+    validateForm = () => {
+        const student = this.state.student;
+        if(student.name && student.email && student.phone && student.course && student.class && student.registrationId){
+            return true
+        }
+        return false;
+    }
+
     /**
     * Pagination Onclick Event Handler
     * @param data
@@ -67,9 +75,13 @@ export default class CreateStudent extends React.Component {
     * Pagination Onclick Event Handler
     * @param data
     */
-    onSave = (e) => {
-        const data = this.state.student;
-        FeedActions.saveStudent(data);
+    onSave = () => {
+        if (this.validateForm()){
+            const data = this.state.student;
+            FeedActions.saveStudent(data);
+        }else{
+            alert("Preencha todos os campos!");
+        }
     }
 
     handleClose = () => {
@@ -92,7 +104,7 @@ export default class CreateStudent extends React.Component {
 
       return (
         <div className="feed">
-            <Subheader style={{fontSize: 24, marginTop: 15}}> Nova aluno </Subheader>
+            <Subheader style={{fontSize: 24, marginTop: 15}}> Novo aluno </Subheader>
             <Divider />
           <Paper style={style} zDepth={2} >
             <TextField

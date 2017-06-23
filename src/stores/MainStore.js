@@ -23,7 +23,6 @@ class MainStore extends BaseStore{
       const token = localStorage.getItem('token')
       if(token){
         const decoded = jwt(token);
-        console.log(decoded.role);
         return decoded.role;
       }
       return "";

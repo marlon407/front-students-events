@@ -59,6 +59,14 @@ export default class CreateUser extends React.Component {
         }
     }
 
+    validateForm = () => {
+        const user = this.state.user;
+        if(user.name && user.email && user.username && user.password) {
+            return true
+        }
+        return false;
+    }
+
     /**
     * Pagination Onclick Event Handler
     * @param data
@@ -73,10 +81,14 @@ export default class CreateUser extends React.Component {
     * Pagination Onclick Event Handler
     * @param data
     */
-    onSave = (e) => {
-        const data = this.state.user;
-        data.role = "Professor"
-        FeedActions.saveUser(data);
+    onSave = () => {
+        if (this.validateForm()){
+            const data = this.state.user;
+            data.role = "Professor"
+            FeedActions.saveUser(data);
+        }else{
+            alert("Preencha todos os campos!");
+        }
     }
 
     handleClose = () => {

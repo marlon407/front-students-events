@@ -13,6 +13,7 @@ import { hashHistory } from "react-router";
 
 import FeedStore from '../../stores/FeedStore';
 import FeedActions from '../../actions/FeedActions';
+import MainActions from '../../actions/MainActions';
 
 const style = {
   margin: 20,
@@ -61,6 +62,14 @@ export default class CreateEvent extends React.Component {
         this.setState({students, professors})
     }
 
+    validateForm = () => {
+        const event = this.state.event;
+        if(event.student && event.professor && event.description && event.subject && event.class && event.registrationId){
+            return true
+        }
+        return false;
+    }
+
     /**
     * Pagination Onclick Event Handler
     * @param data
@@ -89,7 +98,12 @@ export default class CreateEvent extends React.Component {
     */
     onSave = (e) => {
         const data = this.state.event;
-        FeedActions.saveEvent(data);
+        if(this.validateForm()){
+            FeedActions.saveEvent(data);
+        }else {
+            // MainActions.sendMessage("Preencha todos os campos!");
+            alert("Preencha todos os campos!");
+        }
     }
 
     handleClose = () => {
@@ -120,7 +134,7 @@ export default class CreateEvent extends React.Component {
         const professors =  this.state.professors || [];
         const studentItems = professors.map((item, index) => {
             return(
-                <MenuItem value={item.name} primaryText={item.name} />
+                <MenuItem key={index} value={item.name} primaryText={item.name} />
             )
         });
         return(
