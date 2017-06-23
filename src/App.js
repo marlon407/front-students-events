@@ -1,7 +1,7 @@
 import React from 'react';
 import AppBar from 'material-ui/AppBar';
 import Snackbar from 'material-ui/Snackbar';
-import FeedStore from './stores/FeedStore';
+import MainStore from './stores/MainStore';
 import RightElement from './components/RightElement';
 
 export default class App extends React.Component {
@@ -13,15 +13,15 @@ export default class App extends React.Component {
   }
 
   componentWillMount() {
-      FeedStore.addChangeListener(this.changeHandler);
+      MainStore.addChangeListener(this.changeHandler);
   }
 
   componentWillUnmount() {
-      FeedStore.removeChangeListener(this.changeHandler);
+      MainStore.removeChangeListener(this.changeHandler);
   }
 
   onChange() {
-      const message = FeedStore.getMessage();
+      const message = MainStore.getMessage();
       console.log("message", message);
       if (message){
         this.setState({message: message, open: true});

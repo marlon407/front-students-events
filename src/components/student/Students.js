@@ -3,6 +3,7 @@ import ReactPaginate from 'react-paginate';
 import Divider from 'material-ui/Divider';
 import Paper from 'material-ui/Paper';
 import RaisedButton from 'material-ui/RaisedButton';
+import Subheader from 'material-ui/Subheader';
 import { hashHistory } from "react-router";
 
 import FeedStore from '../../stores/FeedStore';
@@ -82,7 +83,8 @@ export default class Students extends React.Component {
       }
       return (
         <div className="feed">
-          <h2> Alunos </h2>
+          <Subheader style={{fontSize: 24, marginTop: 15}}> Alunos </Subheader>
+            <Divider />
           <Divider />
           <Paper style={style} zDepth={2} >
             <FeedItems students={this.state.students}  />

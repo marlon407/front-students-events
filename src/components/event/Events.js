@@ -1,6 +1,8 @@
 import React from 'react';
 import Paper from 'material-ui/Paper';
 import RaisedButton from 'material-ui/RaisedButton';
+import Subheader from 'material-ui/Subheader';
+import Divider from 'material-ui/Divider';
 import { hashHistory } from "react-router";
 
 
@@ -60,20 +62,15 @@ export default class Events extends React.Component {
      * @returns {XML}
      */
     render() {
-        let renderCreateButton;
-        if(this.state.role === "admin"){
-            renderCreateButton = (
-            <div style={{textAlign:'right'}}>
-                    <RaisedButton onTouchTap={()=>{hashHistory.push('events/new')}} label="Novo" primary={true} style={{margin:"20"}} />
-                </div>
-            )
-        }
         return (
           <div className="feed">
-            <h2> Ocorrências </h2>
+            <Subheader style={{fontSize: 24, marginTop: 15}}> Ocorrências </Subheader>
+            <Divider />
             <Paper style={style} zDepth={2} >
               <EventItems events={this.state.events} />
-              {renderCreateButton}
+              <div style={{textAlign:'right'}}>
+                <RaisedButton onTouchTap={()=>{hashHistory.push('events/new')}} label="Novo" primary={true} style={{margin:"20"}} />
+              </div>
             </Paper>
           </div>
         )

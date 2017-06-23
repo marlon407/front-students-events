@@ -12,7 +12,7 @@ const style = {
 };
 
 const textStyle = {
-  padding: "10px"
+    width: '100%',
 };
 
 export default class Feed extends React.Component {
@@ -73,27 +73,20 @@ export default class Feed extends React.Component {
       return (
         <div className="login">
           <Paper style={style} zDepth={2} >
-              <div>
+              <div style={{padding: 10}}>
                 <TextField
-                    style={{width: '100%'}}
-                    textareaStyle={textStyle}
-                    floatingLabelStyle={textStyle}
+                    style={textStyle}
                     floatingLabelText="Username"
-                    multiLine={true}
                     value={this.state.username}
                     onChange={this.onChangeUsername}
-                    rows={1}
                 />
 
                 <TextField
-                    style={{width: '100%'}}
-                    textareaStyle={textStyle}
-                    floatingLabelStyle={textStyle}
+                    style={textStyle}
                     floatingLabelText="Password"
-                    multiLine={true}
+                    type="password"
                     value={this.state.password}
                     onChange={this.onChangePassword}
-                    rows={1}
                 />
                 <div style={{textAlign:'right'}}>
                     <RaisedButton onTouchTap={this.handlePageClick} label="Login" primary={true} style={{margin:"20"}} />

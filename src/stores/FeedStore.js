@@ -33,13 +33,6 @@ class FeedStore extends BaseStore{
         return saved;
     }
 
-    setMessage(message){ this.message = message; }
-    getMessage(){ 
-      const message = this.message;
-      this.message = null;
-      return message; 
-    }
-
     _registerToActions(action) {
         switch (action.type) {
         case ActionTypes.GET_STUDENTS:
@@ -70,10 +63,6 @@ class FeedStore extends BaseStore{
           this.setEvent(action.data);
           this.emitChange();
           break;
-        case ActionTypes.SEND_MESSAGE:
-          this.setMessage(action.data);
-          this.emitChange()
-          break
         default:
           break;
         }

@@ -8,6 +8,7 @@ import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
+import Subheader from 'material-ui/Subheader';
 import { hashHistory } from "react-router";
 
 import FeedStore from '../../stores/FeedStore';
@@ -166,7 +167,8 @@ export default class CreateEvent extends React.Component {
 
       return (
         <div className="feed">
-            <h2> Detalhe ocorrência </h2>
+            <Subheader style={{fontSize: 24, marginTop: 15}}> Detalhe ocorrência </Subheader>
+            <Divider />
           <Paper style={style} zDepth={2} >
             
             

@@ -10,6 +10,7 @@ class MainStore extends BaseStore{
       this.token = null;
       this.login = null;
       this.loggedIn = false;
+      this.message = null;
     }
 
     setLogin(login){
@@ -28,6 +29,13 @@ class MainStore extends BaseStore{
       return "";
     }
 
+    setMessage(message){ this.message = message; }
+    getMessage(){ 
+      const message = this.message;
+      this.message = null;
+      return message; 
+    }
+
     isLoogedIn() { return this.loggedIn; }
 
     _registerToActions(action) {
@@ -37,6 +45,10 @@ class MainStore extends BaseStore{
           this.loggedIn = true;
           this.emitChange();
           break;
+        case ActionTypes.SEND_MESSAGE:
+          this.setMessage(action.message);
+          this.emitChange()
+          break
         default:
           break;
         }

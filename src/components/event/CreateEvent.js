@@ -8,6 +8,7 @@ import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
+import Subheader from 'material-ui/Subheader';
 import { hashHistory } from "react-router";
 
 import FeedStore from '../../stores/FeedStore';
@@ -15,14 +16,7 @@ import FeedActions from '../../actions/FeedActions';
 
 const style = {
   margin: 20,
-};
-
-const textStyle = {
-  padding: "0 10px"
-};
-
-const labelStyle = {
-  padding: "10px"
+  padding: 10
 };
 
 export default class CreateEvent extends React.Component {
@@ -114,7 +108,7 @@ export default class CreateEvent extends React.Component {
                 floatingLabelText="Selecione um aluno"
                 value={this.state.event.student}
                 name={"student"}
-                style={{width: '100%', padding: 10}}
+                style={{width: '100%'}}
                 onChange={(this.handleStudentChange)}
                 >
                 {studentItems}
@@ -133,7 +127,7 @@ export default class CreateEvent extends React.Component {
             <SelectField
                 floatingLabelText="Selecione um professor"
                 value={this.state.event.professor}
-                style={{width: '100%', padding: 10}}
+                style={{width: '100%'}}
                 onChange={(this.handleProfessorChange)}
                 >
                 {studentItems}
@@ -157,7 +151,8 @@ export default class CreateEvent extends React.Component {
 
       return (
         <div className="feed">
-            <h2> Nova ocorrência </h2>
+            <Subheader style={{fontSize: 24, marginTop: 15}}> Nova ocorrência </Subheader>
+            <Divider />
           <Paper style={style} zDepth={2} >
             
             
@@ -167,7 +162,6 @@ export default class CreateEvent extends React.Component {
 
             <TextField
                 style={{width: '100%'}}
-                floatingLabelStyle={textStyle}
                 floatingLabelText="Disciplina"
                 name="subject"
                 value={this.state.event.subject}
@@ -176,7 +170,6 @@ export default class CreateEvent extends React.Component {
 
             <TextField
                 style={{width: '100%'}}
-                floatingLabelStyle={textStyle}
                 floatingLabelText="Descrição da ocorrência"
                 name="description"
                 multiLine={true}
@@ -187,8 +180,6 @@ export default class CreateEvent extends React.Component {
 
             <TextField
                 style={{width: '100%'}}
-                textareaStyle={textStyle}
-                floatingLabelStyle={textStyle}
                 floatingLabelText="Turma"
                 name="class"
                 value={this.state.event.class}
@@ -197,10 +188,9 @@ export default class CreateEvent extends React.Component {
 
             <TextField
                 style={{width: '100%'}}
-                textareaStyle={textStyle}
-                floatingLabelStyle={textStyle}
                 floatingLabelText="Matricula"
                 name="registrationId"
+                type="number"
                 value={this.state.event.registrationId}
                 onChange={this.onChangeInput}
             />

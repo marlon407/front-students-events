@@ -6,6 +6,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
+import Subheader from 'material-ui/Subheader';
 import { hashHistory } from "react-router";
 
 import FeedStore from '../../stores/FeedStore';
@@ -13,6 +14,7 @@ import FeedActions from '../../actions/FeedActions';
 
 const style = {
   margin: 20,
+  padding: 10
 };
 
 const textStyle = {
@@ -97,13 +99,12 @@ export default class CreateUser extends React.Component {
 
       return (
         <div className="feed">
-            <h2> Novo professor </h2>
+            <Subheader style={{fontSize: 24, marginTop: 15}}> Nova professor </Subheader>
+            <Divider />
           <Paper style={style} zDepth={2} >
             
             <TextField
                 style={{width: '100%'}}
-                textareaStyle={textStyle}
-                floatingLabelStyle={textStyle}
                 floatingLabelText="Nome"
                 name="name"
                 value={this.state.user.name}
@@ -112,8 +113,6 @@ export default class CreateUser extends React.Component {
 
             <TextField
                 style={{width: '100%'}}
-                textareaStyle={textStyle}
-                floatingLabelStyle={textStyle}
                 floatingLabelText="Email"
                 name="email"
                 type="email"
@@ -123,8 +122,6 @@ export default class CreateUser extends React.Component {
 
             <TextField
                 style={{width: '100%'}}
-                textareaStyle={textStyle}
-                floatingLabelStyle={textStyle}
                 floatingLabelText="Login"
                 name="username"
                 value={this.state.user.username}
@@ -133,8 +130,6 @@ export default class CreateUser extends React.Component {
 
             <TextField
                 style={{width: '100%'}}
-                textareaStyle={textStyle}
-                floatingLabelStyle={textStyle}
                 floatingLabelText="Senha"
                 name="password"
                 type="password"

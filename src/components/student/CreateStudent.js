@@ -6,6 +6,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
+import Subheader from 'material-ui/Subheader';
 import { hashHistory } from "react-router";
 
 import FeedStore from '../../stores/FeedStore';
@@ -13,14 +14,7 @@ import FeedActions from '../../actions/FeedActions';
 
 const style = {
   margin: 20,
-};
-
-const textStyle = {
-  padding: "0 10px"
-};
-
-const labelStyle = {
-  padding: "10px"
+  padding: 10
 };
 
 export default class CreateStudent extends React.Component {
@@ -98,12 +92,11 @@ export default class CreateStudent extends React.Component {
 
       return (
         <div className="feed">
+            <Subheader style={{fontSize: 24, marginTop: 15}}> Nova aluno </Subheader>
+            <Divider />
           <Paper style={style} zDepth={2} >
-            
             <TextField
                 style={{width: '100%'}}
-                textareaStyle={textStyle}
-                floatingLabelStyle={textStyle}
                 floatingLabelText="Nome"
                 name="name"
                 value={this.state.student.name}
@@ -112,8 +105,6 @@ export default class CreateStudent extends React.Component {
 
             <TextField
                 style={{width: '100%'}}
-                textareaStyle={textStyle}
-                floatingLabelStyle={textStyle}
                 floatingLabelText="Email"
                 name="email"
                 value={this.state.student.email}
@@ -122,18 +113,15 @@ export default class CreateStudent extends React.Component {
 
             <TextField
                 style={{width: '100%'}}
-                textareaStyle={textStyle}
-                floatingLabelStyle={textStyle}
                 floatingLabelText="Telefone"
                 name="phone"
+                type="number"
                 value={this.state.student.phone}
                 onChange={this.onChangeInput}
             />
 
             <TextField
                 style={{width: '100%'}}
-                textareaStyle={textStyle}
-                floatingLabelStyle={textStyle}
                 floatingLabelText="Turma"
                 name="class"
                 value={this.state.student.class}
@@ -142,8 +130,6 @@ export default class CreateStudent extends React.Component {
 
             <TextField
                 style={{width: '100%'}}
-                textareaStyle={textStyle}
-                floatingLabelStyle={textStyle}
                 floatingLabelText="Curso"
                 name="course"
                 value={this.state.student.course}
@@ -152,10 +138,9 @@ export default class CreateStudent extends React.Component {
 
             <TextField
                 style={{width: '100%'}}
-                textareaStyle={textStyle}
-                floatingLabelStyle={textStyle}
                 floatingLabelText="Matricula"
                 name="registrationId"
+                type="number"
                 value={this.state.student.registrationId}
                 onChange={this.onChangeInput}
             />

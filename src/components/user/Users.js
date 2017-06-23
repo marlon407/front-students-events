@@ -1,8 +1,9 @@
 import React from 'react';
 import Paper from 'material-ui/Paper';
 import RaisedButton from 'material-ui/RaisedButton';
+import Subheader from 'material-ui/Subheader';
+import Divider from 'material-ui/Divider';
 import { hashHistory } from "react-router";
-
 
 import MainStore from '../../stores/MainStore';
 import FeedStore from '../../stores/FeedStore';
@@ -70,7 +71,8 @@ export default class Users extends React.Component {
         }
         return (
           <div className="feed">
-              <h2> Professores </h2>
+              <Subheader style={{fontSize: 24, marginTop: 15}}> Professores </Subheader>
+            <Divider />
             <Paper style={style} zDepth={2} >
               <FriendsItems professors={this.state.professors} />
               {renderCreateButton}
